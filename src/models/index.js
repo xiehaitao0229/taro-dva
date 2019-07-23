@@ -1,8 +1,5 @@
-
-import sys from './sys'
-import feeds from './feeds'
+import home from './home'
 
 export default [
-  sys,
-  feeds
+  home
 ]
