@@ -1,21 +1,23 @@
-import {queryBanner} from '../service/api';
+import { queryBanner } from '../service/api';
 
 export default {
   namespace: 'home',
   state: {
-    banner:{}
+    banner: {}
   },
   effects: {
     * banner(_, { call, put }) {
       // const { banner } = yield select(state => state.home);
-      const { code, banners } = yield call(queryBanner);
-      if (code === 200) {
+      try {
+        const response = yield call(queryBanner);
         yield put({
           type: 'save',
           payload: {
-            banner: banners,
+            banner: response,
           },
         });
+      } catch (e) {
+        throw new Error(e)
       }
     },
   },

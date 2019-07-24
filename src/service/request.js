@@ -5,7 +5,6 @@ import {BASE_URL, HTTP_ERROR} from "./config.default";
 export default {
   request(options, method) {
     const {url:{url}, data} = options;
-    console.log(url,1111)
     let contentType = "application/json";
     contentType = options.contentType || contentType;
     //基于Promise二次封装，方便使用
